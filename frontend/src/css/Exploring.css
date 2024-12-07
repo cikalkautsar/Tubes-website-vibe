@@ -1,0 +1,53 @@
+.exploring-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    text-align: center;
+  }
+  
+  .exploring-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 20%; /* Menambahkan radius 63% untuk membuat gambar bulat */
+    object-fit: cover; /* Agar gambar tidak terdistorsi */
+  }
+  
+  .exploring-button {
+    padding: 12px 25px;
+    background-color: white;
+    color: black;
+    border: 2px solid black; /* Stroke hitam pada tombol */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .exploring-button:hover {
+    background-color: #e0e0e0; /* Warna tombol saat hover */
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  @media (max-width: 768px) {
+    .exploring-container {
+      padding: 20px; /* Menambahkan padding di layar kecil */
+    }
+  
+    .exploring-button {
+      padding: 10px 20px; /* Memperkecil tombol di layar kecil */
+      font-size: 14px; /* Mengurangi ukuran font */
+    }
+  
+    .exploring-image {
+      width: 150px; /* Mengecilkan gambar di layar kecil */
+      height: 150px;
+    }
+  }
+  

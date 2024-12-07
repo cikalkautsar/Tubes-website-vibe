@@ -1,0 +1,41 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .landing-image {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .landing-button,
+  .landing-signup-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+  }
+  
+  .landing-login-button {
+    background-color: #748cab;
+    color: white;
+  }
+  
+  .landing-signup-button {
+    background-color: black;
+    color: white;
+  }
+  
+  .landing-button:hover,
+  .landing-signup-button:hover {
+    opacity: 0.8;
+  }
+  
