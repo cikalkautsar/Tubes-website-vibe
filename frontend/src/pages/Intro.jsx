@@ -8,7 +8,7 @@ function Intro() {
   const navigate = useNavigate();
 
   const handleNavigation = () => {
-    navigate("/exploring"); // Navigasi ke halaman login
+    navigate("/exploring");
   };
 
   return (
