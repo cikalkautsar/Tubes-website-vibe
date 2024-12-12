@@ -10,7 +10,7 @@ class user(models.Model):
     profile_picture = models.URLField(blank=True, null=True)
     join_date = models.DateTimeField(auto_now_add=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.username
 
     class Meta:
@@ -21,11 +21,11 @@ class user(models.Model):
 class post(models.Model):
     captions = models.TextField()
     media = models.URLField(blank=True, null=True)
-    date = models.DateField ()
+    date = models.DateField()
     ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
 
-    def _str_(self):
-        return f"Post by {self.user.username}"
+    def __str__(self):
+        return f"Post by {self.ID_user.username}"
 
     class Meta:
         db_table = 'post'
@@ -36,8 +36,8 @@ class likes(models.Model):
     ID_post = models.ForeignKey(post, on_delete=models.CASCADE)  # Relasi ke Post
     ID_likedBy = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
 
-    def _str_(self):
-        return f"{self.liked_by.username} liked {self.post.id}"
+    def __str__(self):
+        return f"{self.ID_likedBy.username} liked {self.ID_post.id}"
 
     class Meta:
         db_table = 'likes'
@@ -50,8 +50,8 @@ class comment(models.Model):
     text_comment = models.TextField()
     ID_comment_rep = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)  # Relasi rekursif
 
-    def _str_(self):
-        return f"Comment by {self.comment_by.username} on {self.post.id}"
+    def __str__(self):
+        return f"Comment by {self.ID_commentBy.username} on {self.ID_post.id}"
 
     class Meta:
         db_table = 'comment'
@@ -64,14 +64,11 @@ class achievements(models.Model):
     minimal_durations = models.TimeField()
     make_date = models.DateTimeField(auto_now_add=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name_achievement
 
     class Meta:
         db_table = 'achievements'
-
-
-
 
 # G. Stopwatch
 class stopwatch(models.Model):
@@ -95,6 +92,8 @@ class user_achievements(models.Model):
 
     class Meta:
         db_table = 'user_achievements'
+
+
 # H. Group_Streaks
 class group_streaks(models.Model):
     name_group = models.CharField(max_length=100, blank=True, null=True)  # Opsional

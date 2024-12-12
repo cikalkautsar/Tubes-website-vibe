@@ -1,5 +1,6 @@
+
 from django.urls import path, include
-from .views import userViewSet, postViewSet, likesViewSet, commentViewSet, achievementsViewSet, stopwatchViewSet,user_achievementsViewSet,group_streaksViewSet,user_group_streaksViewSet,status_streaksViewSet,user_streaksViewSet,streak_invitationViewSet,postingan_tagsViewSet,followViewSet
+from .views import userViewSet, RegisterView, postViewSet, likesViewSet, commentViewSet, achievementsViewSet, stopwatchViewSet,user_achievementsViewSet,group_streaksViewSet,user_group_streaksViewSet,status_streaksViewSet,user_streaksViewSet,streak_invitationViewSet,postingan_tagsViewSet,followViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
@@ -19,4 +20,6 @@ router.register (r'follow', followViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('api/user/', RegisterView.as_view(), name='user-list'),
+
 ]

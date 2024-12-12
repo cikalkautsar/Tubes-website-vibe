@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import viewsets, status
 from .models import user,post,likes,comment,achievements,user_achievements,stopwatch,group_streaks,user_group_streaks,status_streaks,user_streaks,streak_invitation,postingan_tags,follow
 from .serializers import userSerializer, postSerializer, likesSerializer, commentSerializer, achievementsSerializer, user_achievementsSerializer,stopwatchSerializer,user_group_streaksSerializer,status_streaksSerializer,user_streaksSerializer,streak_invitationSerializer,postingan_tagsSerializer,followSerializer,group_streaksSerializer
 
@@ -7,6 +9,17 @@ from .serializers import userSerializer, postSerializer, likesSerializer, commen
 class userViewSet(viewsets.ModelViewSet):
     queryset = user.objects.all()
     serializer_class = userSerializer
+
+class RegisterView(APIView):
+    def post(self, request):
+        print("POST request recieved") 
+        name = request.data.get('name')
+        username = request.data.get('username')
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        User = user.objects.create(name=name, username=username, email=email, password=password)
+        return Response({'success': 'Pendaftaran sukses'}, status=status.HTTP_201_CREATED)
 
 class postViewSet(viewsets.ModelViewSet):
     queryset = post.objects.all()
@@ -59,4 +72,3 @@ class postingan_tagsViewSet(viewsets.ModelViewSet):
 class followViewSet(viewsets.ModelViewSet):
     queryset = follow.objects.all()
     serializer_class = followSerializer
-
