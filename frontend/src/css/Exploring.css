@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 .exploring-container {
     display: flex;
     flex-direction: column;
@@ -34,7 +36,10 @@
     font-size: 24px;
     margin: 20px 0;
   }
+
+
   
+
   @media (max-width: 768px) {
     .exploring-container {
       padding: 20px; /* Menambahkan padding di layar kecil */

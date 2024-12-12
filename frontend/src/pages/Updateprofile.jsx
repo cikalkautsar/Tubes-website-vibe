@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/profile.css"; 
+import "../css/Updateprofile.css"; 
 
-function Profile() {
+function UpdateProfile() {
   const [profileImage, setProfileImage] = useState(null);
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
@@ -13,13 +13,13 @@ function Profile() {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = () => setProfileImage(reader.result); // Menampilkan preview gambar
+      reader.onload = () => setProfileImage(reader.result);
       reader.readAsDataURL(file);
     }
   };
 
   const handleDashboard = () => {
-    navigate("/dashboard"); // Arahkan ke dashboard
+    navigate("/dashboard");
   };
 
   return (
@@ -48,22 +48,25 @@ function Profile() {
           />
         </div>
         <div className="form-fields">
-          <label>Your Display Name</label>
+          <label htmlFor="displayName">Your Display Name</label>
           <input
+            id="displayName"
             type="text"
             placeholder="Type here"
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
           />
-          <label>Username</label>
+          <label htmlFor="username">Username</label>
           <input
+            id="username"
             type="text"
             placeholder="Type here"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label>Bio</label>
+          <label htmlFor="bio">Bio</label>
           <textarea
+            id="bio"
             placeholder="Write something about yourself"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
@@ -77,4 +80,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default UpdateProfile;
