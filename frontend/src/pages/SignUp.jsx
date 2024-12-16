@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/signup.css"; 
@@ -10,28 +9,35 @@ const Signup = () => {
   const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
-    name : "",
-    username : "",
-    email : "",
-    password : "",
-  })
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  });
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Menyimpan data nama dan username ke localStorage
+      localStorage.setItem("name", formData.name); // Simpan nama lengkap
+      localStorage.setItem("username", formData.username); // Simpan username
+
+      // Melakukan request ke API untuk registrasi pengguna
       await axios.post("http://localhost:8000/api/register/", formData);
       alert("Registrasi berhasil! Silakan login.");
-      navigate("/login");
+      navigate("/login"); // Navigasi ke halaman login setelah registrasi berhasil
     } catch (error) {
       console.error("Registrasi Gagal:", error);
       alert("Registrasi gagal. Coba lagi");
     }
   };
-
 
   return (
     <div className="signup-container">
@@ -39,51 +45,55 @@ const Signup = () => {
       <div className="signup-form">
         <img src={image} alt="Illustration" className="signup-image" />
         <form onSubmit={handleSubmit}>
-        <div className="signup-form-fields">
-          <label htmlFor="name" className="signup-label">Name</label> {/* Ganti kelas */}
-          <input 
-          type="text"
-          id="name"
-          name="name" 
-          className="signup-input"
-          value={formData.name} 
-          onChange={handleChange}
-          placeholder="Type here" /> {/* Ganti kelas */}
-          
-          <label htmlFor="username" className="signup-label">Username</label> {/* Ganti kelas */}
-          <input 
-          type="text"
-          id="username"
-          name="username"
-          className="signup-input" 
-          value={formData.username}
-          onChange={handleChange}
-          placeholder="Type Here" /> {/* Ganti kelas */}
-          
-          <label htmlFor="email" className="signup-label">E-mail</label> {/* Ganti kelas */}
-          <input 
-          type="email" 
-          id="email"
-          name="email"
-          className="signup-input"
-          value={formData.email}
-          onChange={handleChange}           
-          placeholder="Type here" /> {/* Ganti kelas */}
-          
-          <label htmlFor="password" className="signup-label">Password</label> {/* Ganti kelas */}
-          <input 
-          type="password" 
-          id="password"
-          name="password"
-          className="signup-input" 
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Value" /> {/* Ganti kelas */}
-          
-          <button type="submit" className="signup-button">
-            Sign Up
-          </button>
-        </div>
+          <div className="signup-form-fields">
+            <label htmlFor="name" className="signup-label">Name</label>
+            <input 
+              type="text"
+              id="name"
+              name="name"
+              className="signup-input"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Type here"
+            />
+            
+            <label htmlFor="username" className="signup-label">Username</label>
+            <input 
+              type="text"
+              id="username"
+              name="username"
+              className="signup-input"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="Type here"
+            />
+            
+            <label htmlFor="email" className="signup-label">E-mail</label>
+            <input 
+              type="email" 
+              id="email"
+              name="email"
+              className="signup-input"
+              value={formData.email}
+              onChange={handleChange}           
+              placeholder="Type here"
+            />
+            
+            <label htmlFor="password" className="signup-label">Password</label>
+            <input 
+              type="password" 
+              id="password"
+              name="password"
+              className="signup-input"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Type here"
+            />
+            
+            <button type="submit" className="signup-button">
+              Sign Up
+            </button>
+          </div>
         </form>
       </div>
       <img src={logo} alt="Vibe Logo" className="logo" />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Updateprofile.css";
 import imageProfileLogo from "../assets/profilelogo.png";
@@ -11,7 +11,15 @@ function UpdateProfile() {
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
+  const [firstname, setFirstName] = useState("User"); // Default ke "User" jika tidak ada data
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Ambil data name dari localStorage
+    const fullName = localStorage.getItem("name") || "User";
+    const firstWord = fullName.split(" ")[0]; // Ambil kata pertama dari nama
+    setFirstName(firstWord); // Set nama depan ke state firstname
+  }, []);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -28,7 +36,7 @@ function UpdateProfile() {
 
   return (
     <div className="profile-container">
-      <h1 className="profile-title">Welcome, User!</h1>
+      <h1 className="profile-title">Welcome, {firstname}!</h1>
       <p>Let's complete your profile</p>
       <div className="profile-form">
         <div className="profile-image-upload">
