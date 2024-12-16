@@ -15,15 +15,17 @@ class userViewSet(viewsets.ModelViewSet):
     serializer_class = userSerializer
 
 class RegisterView(APIView):
-    def post(self, request):
-        print("POST request recieved") 
-        username = request.data.get('username')
+    def post(self, request): #fungsi untuk menambah data
+        print("POST request recieved")  
+        username = request.data.get('username') 
         name = request.data.get('name')
         email = request.data.get('email')
         password = request.data.get('password')
 
         user = User.objects.create_user(username=username, email=email, password=password)
-        member = pengguna.objects.create(user=user, email=email, name=name)
+        #user : variabel sementara 
+        pengguna = pengguna.objects.create(user=user, email=email, name=name)
+
         return Response({'success': 'Pendaftaran sukses'}, status=status.HTTP_201_CREATED)
 
 

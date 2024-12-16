@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# A. User
+
 class pengguna(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE) #user ini fk dari tabel baru yang bernama auth_user
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     bio = models.TextField(blank=True, null=True)
