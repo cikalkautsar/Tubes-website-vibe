@@ -25,8 +25,9 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Menyimpan data nama dan username ke localStorage
-      localStorage.setItem("name", formData.name); // Simpan nama lengkap
+      const fullName = formData.name;
+      localStorage.setItem("fullName", fullName); // Simpan nama lengkap
+      const username = formData.username;
       localStorage.setItem("username", formData.username); // Simpan username
 
       // Melakukan request ke API untuk registrasi pengguna

@@ -5,9 +5,9 @@ body {
   font-family: Arial, sans-serif;
   background-color: #2f4f67;
   color: #ffffff;
+  font-family: 'Jua', sans-serif !important;
 }
 
-/* Kontainer utama profil */
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -98,6 +98,13 @@ textarea {
   max-width: 380px;
 }
 
+.disabled-input {
+  background-color: #f0f0f0; 
+  color: #777; 
+  cursor: not-allowed; 
+  border: 1px solid #ddd; 
+}
+
 textarea {
   resize: none;
   height: 80px;
@@ -120,8 +127,8 @@ textarea {
   background-color: #234c7c;
 }
 
-.bottom-navigation {
-  position: fixed;
+.update-bottom-navigation {
+  position: static;
   bottom: 0;
   width: 100%; 
   max-width: 460px; 
@@ -132,6 +139,8 @@ textarea {
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
+  margin-left: 460px;
+  margin-top: -12px;
 }
 
 .nav-icon {

@@ -8,13 +8,18 @@
     height: 100vh;
     background-color: #f0f0f0;
     text-align: center;
+    font-family: 'Jua', sans-serif !important;
   }
   
+  .exploring-container h1 {
+    color: black;
+  }
+
   .exploring-image {
     width: 200px;
     height: 200px;
-    border-radius: 20%; /* Menambahkan radius 63% untuk membuat gambar bulat */
-    object-fit: cover; /* Agar gambar tidak terdistorsi */
+    border-radius: 20%; 
+    object-fit: cover; 
   }
   
   .exploring-button {

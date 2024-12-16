@@ -14,7 +14,7 @@ function Intro() {
   return (
     <div className="intro-container">
       <img src={image} alt="Logo" className="intro-image" />
-      <h1>VIBE</h1>
+      <h1>Virtual Interactive Bridge for Education</h1>
       <p>Your Virtual Mate</p>
       <button className="intro-button" onClick={handleNavigation}>
         Tap here

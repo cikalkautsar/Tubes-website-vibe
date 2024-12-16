@@ -36,7 +36,7 @@ function UpdateProfile() {
 
   return (
     <div className="profile-container">
-      <h1 className="profile-title">Welcome, {firstname}!</h1>
+      <h1 className="profile-title">Welcome, User!</h1>
       <p>Let's complete your profile</p>
       <div className="profile-form">
         <div className="profile-image-upload">
@@ -88,7 +88,7 @@ function UpdateProfile() {
           </button>
         </div>
       </div>
-      <div className="bottom-navigation">
+      <div className="update-bottom-navigation">
         <img
           src={imageProfileLogo}
           alt="Profile"
@@ -99,7 +99,7 @@ function UpdateProfile() {
           src={imageHomeLogo}
           alt="Home"
           className="nav-icon"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/home")}
         />
         <img
           src={imageSearchLogo}

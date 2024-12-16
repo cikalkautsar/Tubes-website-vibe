@@ -5,8 +5,13 @@
     justify-content: center;
     height: 100vh;
     background-color: #f0f0f0;
+    font-family: 'Jua', sans-serif !important;
   }
   
+  .landing-container h1{
+    color: black;
+  }
+
   .landing-image {
     width: 200px;
     height: auto;
