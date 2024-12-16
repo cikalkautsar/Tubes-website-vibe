@@ -1,11 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # A. User
-class user(models.Model):
-    username = models.CharField(max_length=50, unique=True)
-    password = models.CharField(max_length=255)  # Disimpan dalam bentuk hash
-    email = models.EmailField(unique=True)
+class pengguna(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
     bio = models.TextField(blank=True, null=True)
     profile_picture = models.URLField(blank=True, null=True)
     join_date = models.DateTimeField(auto_now_add=True)
@@ -14,15 +14,14 @@ class user(models.Model):
         return self.username
 
     class Meta:
-        db_table = 'user'
-
+        db_table = 'pengguna'
 
 # B. Post
 class post(models.Model):
     captions = models.TextField()
     media = models.URLField(blank=True, null=True)
     date = models.DateField()
-    ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_user = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
 
     def __str__(self):
         return f"Post by {self.ID_user.username}"
@@ -34,7 +33,7 @@ class post(models.Model):
 # C. Likes
 class likes(models.Model):
     ID_post = models.ForeignKey(post, on_delete=models.CASCADE)  # Relasi ke Post
-    ID_likedBy = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_likedBy = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
 
     def __str__(self):
         return f"{self.ID_likedBy.username} liked {self.ID_post.id}"
@@ -46,7 +45,7 @@ class likes(models.Model):
 # D. Comment
 class comment(models.Model):
     ID_post = models.ForeignKey(post, on_delete=models.CASCADE)  # Relasi ke Post
-    ID_commentBy = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_commentBy = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
     text_comment = models.TextField()
     ID_comment_rep = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)  # Relasi rekursif
 
@@ -72,7 +71,7 @@ class achievements(models.Model):
 
 # G. Stopwatch
 class stopwatch(models.Model):
-    ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_user = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
     start_time = models.DateTimeField()
     finish_time = models.DateTimeField()
     duration_stopwatch = models.TimeField()
@@ -83,7 +82,7 @@ class stopwatch(models.Model):
 
 # F. User_Achievements
 class user_achievements(models.Model):
-    ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_user = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
     ID_achievement = models.ForeignKey(achievements, on_delete=models.CASCADE)  # Relasi ke Achievement
     ID_stopwatch = models.ForeignKey(stopwatch, on_delete=models.CASCADE)  # Relasi ke Stopwatch
     target_date = models.DateTimeField()
@@ -108,7 +107,7 @@ class group_streaks(models.Model):
 # I. User_Group_Streaks
 class user_group_streaks(models.Model):
     ID_group_streaks = models.ForeignKey(group_streaks, on_delete=models.CASCADE)  # Relasi ke GroupStreak
-    ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_user = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
     join_status = models.BooleanField()
     join_date_user_groupstreaks = models.DateTimeField()
 
@@ -119,7 +118,7 @@ class user_group_streaks(models.Model):
 # J. Status_Streaks
 class status_streaks(models.Model):
     ID_group_streaks = models.ForeignKey(group_streaks, on_delete=models.CASCADE)  # Relasi ke GroupStreak
-    ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_user = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
     date_join_streaks = models.DateField()
     status = models.BooleanField()
     duration = models.TimeField()
@@ -131,7 +130,7 @@ class status_streaks(models.Model):
 # K. User_Streaks
 class user_streaks(models.Model):
     ID_group_streaks = models.ForeignKey(group_streaks, on_delete=models.CASCADE)  # Relasi ke GroupStreak
-    ID_user = models.ForeignKey(user, on_delete=models.CASCADE)  # Relasi ke User
+    ID_user = models.ForeignKey(pengguna, on_delete=models.CASCADE)  # Relasi ke User
     start_date = models.DateField()
     finish_date = models.DateField()
     total = models.TimeField()
@@ -143,8 +142,8 @@ class user_streaks(models.Model):
 
 # L. Streak_Invitation
 class streak_invitation(models.Model):
-    ID_user_sender = models.ForeignKey(user, on_delete=models.CASCADE, related_name='invitations_sent')  # Relasi ke User
-    ID_user_receiver = models.ForeignKey(user, on_delete=models.CASCADE, related_name='invitations_received')  # Relasi ke User
+    ID_user_sender = models.ForeignKey(pengguna, on_delete=models.CASCADE, related_name='invitations_sent')  # Relasi ke User
+    ID_user_receiver = models.ForeignKey(pengguna, on_delete=models.CASCADE, related_name='invitations_received')  # Relasi ke User
     ID_group_streak = models.ForeignKey(group_streaks, on_delete=models.CASCADE)  # Relasi ke GroupStreak
     date_invitation = models.DateTimeField(auto_now_add=True)
     status_invitation = models.CharField(
@@ -167,8 +166,8 @@ class postingan_tags(models.Model):
 
 # O. Follow
 class follow(models.Model):
-    ID_user_follower = models.ForeignKey(user, on_delete=models.CASCADE, related_name='following')  # Relasi ke User
-    ID_user_followed = models.ForeignKey(user, on_delete=models.CASCADE, related_name='followers')  # Relasi ke User
+    ID_user_follower = models.ForeignKey(pengguna, on_delete=models.CASCADE, related_name='following')  # Relasi ke User
+    ID_user_followed = models.ForeignKey(pengguna, on_delete=models.CASCADE, related_name='followers')  # Relasi ke User
     follow_date = models.DateField(auto_now_add=True)
 
     class Meta:
