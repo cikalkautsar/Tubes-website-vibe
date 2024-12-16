@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/Updateprofile.css"; 
+import "../css/Updateprofile.css";
+import imageProfileLogo from "../assets/profilelogo.png";
+import imageHomeLogo from "../assets/homelogo.png";
+import imageSearchLogo from "../assets/searchlogo.png";
+import imageCalendarLogo from "../assets/calendarlogo.png";
 
 function UpdateProfile() {
   const [profileImage, setProfileImage] = useState(null);
@@ -75,6 +79,32 @@ function UpdateProfile() {
             Save
           </button>
         </div>
+      </div>
+      <div className="bottom-navigation">
+        <img
+          src={imageProfileLogo}
+          alt="Profile"
+          className="nav-icon"
+          onClick={() => navigate("/profile")}
+        />
+        <img
+          src={imageHomeLogo}
+          alt="Home"
+          className="nav-icon"
+          onClick={() => navigate("/")}
+        />
+        <img
+          src={imageSearchLogo}
+          alt="Search"
+          className="nav-icon"
+          onClick={() => navigate("/search")}
+        />
+        <img
+          src={imageCalendarLogo}
+          alt="Calendar"
+          className="nav-icon"
+          onClick={() => navigate("/calendar")}
+        />
       </div>
     </div>
   );

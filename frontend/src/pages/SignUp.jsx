@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/signup.css"; 
@@ -20,10 +21,9 @@ const Signup = () => {
   };
 
   const handleSubmit = async (e) => {
-
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/api/user/", formData);
+      await axios.post("http://localhost:8000/api/register/", formData);
       alert("Registrasi berhasil! Silakan login.");
       navigate("/login");
     } catch (error) {
@@ -92,4 +92,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
