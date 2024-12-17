@@ -37,7 +37,6 @@ const CreateAch = () => {
 
   return (
     <div className="achievements-container">
-      {/* Header */}
       <header className="profile-header">
         <div className="profile-details">
           <div className="profile-pic"></div>
@@ -52,7 +51,6 @@ const CreateAch = () => {
         </p>
       </header>
 
-      {/* Main Content */}
       <main className="achievements-main">
         <img
           src={imageBack}
@@ -63,7 +61,6 @@ const CreateAch = () => {
         <h2>Achievements</h2>
 
         <form className="achievement-form">
-          {/* Achievement Name */}
           <label>Name of Achievements</label>
           <input
             type="text"
@@ -72,7 +69,6 @@ const CreateAch = () => {
             className="form-input"
           />
 
-          {/* Description */}
           <label>Description</label>
           <textarea
             value={description}
@@ -80,7 +76,7 @@ const CreateAch = () => {
             className="form-input"
           ></textarea>
 
-          {/* Choose Your Streaks */}
+
           <p className="streak-title">Choose your streaks</p>
           <div className="streak-buttons">
             <button
@@ -101,18 +97,16 @@ const CreateAch = () => {
 
           {showFriends && (
   <>
-    {/* Overlay Background */}
     <div className="overlay"></div>
 
-    {/* Pop-up Daftar Teman */}
     <div className="friends-selection">
-      {/* Tombol Back */}
+
       <div className="friends-header">
         <img
           src={imageBack}
           alt="Back"
           className="back-button"
-          onClick={() => setShowFriends(false)} // Tutup popup
+          onClick={() => setShowFriends(false)} 
         />
       </div>
 
@@ -133,7 +127,6 @@ const CreateAch = () => {
 
 
 
-          {/* Select Time */}
           <p className="select-time-title">Select time</p>
           <div className="time-inputs">
             <input
@@ -164,14 +157,12 @@ const CreateAch = () => {
             />
           </div>
 
-          {/* Save Button */}
           <button type="submit" className="save-btn">
             Save
           </button>
         </form>
       </main>
 
-      {/* Footer */}
       <footer className="mobile-footer">
         <img src={imageProfileLogo} alt="Profile" className="nav-icon" onClick={() => navigate("/profile")} />
         <img src={imageHomeLogo} alt="Home" className="nav-icon" onClick={() => navigate("/")} />

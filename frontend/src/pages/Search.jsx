@@ -9,10 +9,9 @@ import imageCalendarLogo from "../assets/calendarlogo.png";
 function Search() {
   const navigate = useNavigate();
   
-  // Deklarasi state untuk mengontrol visibilitas search bar
   const [isSearchVisible, setIsSearchVisible] = useState(true);
 
-  // Dummy handleScroll function untuk menghindari error
+
   const handleScroll = () => {
     console.log("Scroll event triggered");
   };

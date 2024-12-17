@@ -26,7 +26,7 @@
     padding: 12px 25px;
     background-color: white;
     color: black;
-    border: 2px solid black; /* Stroke hitam pada tombol */
+    border: 2px solid black; 
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -34,7 +34,7 @@
   }
   
   .exploring-button:hover {
-    background-color: #e0e0e0; /* Warna tombol saat hover */
+    background-color: #e0e0e0; 
   }
   
   h1 {
@@ -47,16 +47,16 @@
 
   @media (max-width: 768px) {
     .exploring-container {
-      padding: 20px; /* Menambahkan padding di layar kecil */
+      padding: 20px; 
     }
   
     .exploring-button {
-      padding: 10px 20px; /* Memperkecil tombol di layar kecil */
-      font-size: 14px; /* Mengurangi ukuran font */
+      padding: 10px 20px; 
+      font-size: 14px;
     }
   
     .exploring-image {
-      width: 150px; /* Mengecilkan gambar di layar kecil */
+      width: 150px; 
       height: 150px;
     }
   }

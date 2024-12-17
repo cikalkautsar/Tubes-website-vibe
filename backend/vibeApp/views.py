@@ -24,7 +24,7 @@ class RegisterView(APIView):
 
         user = User.objects.create_user(username=username, email=email, password=password)
         #user : variabel sementara 
-        pengguna = pengguna.objects.create(user=user, email=email, name=name)
+        member = pengguna.objects.create(user=user, email=email, name=name)
 
         return Response({'success': 'Pendaftaran sukses'}, status=status.HTTP_201_CREATED)
 

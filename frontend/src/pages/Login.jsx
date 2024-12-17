@@ -11,15 +11,6 @@ const Login = () => {
   const [password , setPassword] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // const [formData, setFormData] = useState({
-  //   username: "",
-  //   password: "",
-  // });
-
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -48,18 +39,6 @@ const Login = () => {
       alert("Login gagal. Coba lagi");
     }
   };
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   if (token) {
-  //     axios.interceptors.request.use((config) => {
-  //       config.headers.Authorization = Bearer ${token};
-  //       return config;
-  //     }, (error) => {
-  //       return Promise.reject(error);
-  //     });
-  //   }
-  // }, []);
 
 
   const handleSignUp = () => {

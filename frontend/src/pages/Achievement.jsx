@@ -21,7 +21,7 @@ const Achievement = () => {
     let timerInterval = null;
     if (isRunning) {
       timerInterval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1); // Tambahkan waktu
+        setTime((prevTime) => prevTime + 1); // buat Tambah waktu
       }, 1000);
     }
 
@@ -39,12 +39,11 @@ const Achievement = () => {
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  // Toggle Play/Pause Timer
   const toggleTimer = () => {
     setIsRunning(!isRunning);
   };
 
-  // Reset Timer
+
   const resetTimer = () => {
     setIsRunning(false);
     setTime(0);
@@ -52,7 +51,6 @@ const Achievement = () => {
 
   return (
     <div className="achievements-container">
-      {/* Header */}
       <header className="profile-header">
         <div className="profile-details">
           <div className="profile-pic"></div>
@@ -62,13 +60,10 @@ const Achievement = () => {
             <p className="bio">always motivated | mathematics enthu (BIO)</p>
           </div>
         </div>
-        {/* Tombol Edit */}
         <p className="edit-button" onClick={() => console.log("Edit Profile")}>
           edit
         </p>
       </header>
-
-      {/* Main Content */}
       <main className="achievements-main">
         <img
           src={imageBack}
@@ -94,8 +89,6 @@ const Achievement = () => {
             <p>Create your own achievements</p>
           </div>
         </div>
-
-        {/* Timer Section */}
         <section className="timer-section">
           <h3>Timer</h3>
           <div className="timer-display">
@@ -121,7 +114,6 @@ const Achievement = () => {
           </div>
         </section>
 
-        {/* Streak Friend Section */}
         <section className="streak-friend-section">
           <h3>🔥 Streak Friend</h3>
           <ul>

@@ -26,14 +26,13 @@ const Signup = () => {
     e.preventDefault();
     try {
       const fullName = formData.name;
-      localStorage.setItem("fullName", fullName); // Simpan nama lengkap
+      localStorage.setItem("fullName", fullName); 
       const username = formData.username;
-      localStorage.setItem("username", formData.username); // Simpan username
+      localStorage.setItem("username", formData.username); 
 
-      // Melakukan request ke API untuk registrasi pengguna
       await axios.post("http://localhost:8000/api/register/", formData);
       alert("Registrasi berhasil! Silakan login.");
-      navigate("/login"); // Navigasi ke halaman login setelah registrasi berhasil
+      navigate("/login"); 
     } catch (error) {
       console.error("Registrasi Gagal:", error);
       alert("Registrasi gagal. Coba lagi");
