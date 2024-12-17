@@ -91,7 +91,7 @@ const Calendar = () => {
 
       <footer className="mobile-footer">
         <img src={imageProfileLogo} alt="Profile" className="nav-icon" onClick={() => navigate("/profile")} />
-        <img src={imageHomeLogo} alt="Home" className="nav-icon" onClick={() => navigate("/")} />
+        <img src={imageHomeLogo} alt="Home" className="nav-icon" onClick={() => navigate("/home")} />
         <img src={imageSearchLogo} alt="Search" className="nav-icon" onClick={() => navigate("/search")} />
         <img src={imageCalendarLogo} alt="Calendar" className="nav-icon active-nav" onClick={() => navigate("/calendar")} />
       </footer>

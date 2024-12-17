@@ -11,11 +11,10 @@ function UpdateProfile() {
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   const [bio, setBio] = useState("");
-  const [firstname, setFirstName] = useState("User"); // Default ke "User" jika tidak ada data
+  const [firstname, setFirstName] = useState("User"); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Ambil data name dari localStorage
     const fullName = localStorage.getItem("name") || "User";
     const firstWord = fullName.split(" ")[0]; // Ambil kata pertama dari nama
     setFirstName(firstWord); // Set nama depan ke state firstname

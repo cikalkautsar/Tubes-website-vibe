@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/Exploring.css"; // Mengimpor CSS
-import image from "../assets/exploring.png"; // Pastikan path gambar benar
+import "../css/Exploring.css"; 
+import image from "../assets/exploring.png"; 
 
 function Exploring() {
   const navigate = useNavigate();

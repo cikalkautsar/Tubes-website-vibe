@@ -57,30 +57,10 @@ function Comment() {
       </div>
 
       <div className="comment-bottom-navigation">
-        <img
-          src={imageProfileLogo}
-          alt="Profile"
-          className="nav-icon"
-          onClick={() => navigate("/profile")}
-        />
-        <img
-          src={imageHomeLogo}
-          alt="Home"
-          className="nav-icon"
-          onClick={() => navigate("/")}
-        />
-        <img
-          src={imageSearchLogo}
-          alt="Search"
-          className="nav-icon"
-          onClick={() => navigate("/search")}
-        />
-        <img
-          src={imageCalendarLogo}
-          alt="Calendar"
-          className="nav-icon"
-          onClick={() => navigate("/calendar")}
-        />
+        <img src={imageProfileLogo} alt="Profile" className="nav-icon" onClick={() => navigate("/profile")} />
+        <img src={imageHomeLogo} alt="Home" className="nav-icon" onClick={() => navigate("/")} />
+        <img src={imageSearchLogo} alt="Search" className="nav-icon" onClick={() => navigate("/search")} />
+        <img src={imageCalendarLogo} alt="Calendar" className="nav-icon active-nav" onClick={() => navigate("/calendar")} />
       </div>
     </div>
   );

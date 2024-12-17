@@ -1,8 +1,8 @@
 // src/pages/Intro.jsx
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Pastikan useNavigate diimpor
+import { useNavigate } from "react-router-dom"; 
 import "../css/intro.css";
-import image from "../assets/logo.png"; // Pastikan path gambar sudah benar
+import image from "../assets/logo.png"; 
 
 function Intro() {
   const navigate = useNavigate();
