@@ -1,4 +1,3 @@
-
 from django.urls import path, include
 from .views import userViewSet, RegisterView, LoginView, postViewSet, likesViewSet, commentViewSet, achievementsViewSet, stopwatchViewSet,user_achievementsViewSet,group_streaksViewSet,user_group_streaksViewSet,status_streaksViewSet,user_streaksViewSet,streak_invitationViewSet,postingan_tagsViewSet,followViewSet
 from rest_framework.routers import DefaultRouter

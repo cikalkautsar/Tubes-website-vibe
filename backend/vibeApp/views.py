@@ -31,7 +31,7 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     def post(self, request):
-        username = request.data.get('name')# ganti username
+        username = request.data.get('username')
         password = request.data.get('password')
         print(f"username: {username}, password: {password}")
         user = authenticate(request, username=username, password=password)
@@ -39,7 +39,7 @@ class LoginView(APIView):
         if user is not None:
             token, created = Token.objects.get_or_create(user=user)
             return Response({   'token': token.key,
-                                'nama': user.username}, status=status.HTTP_200_OK)
+                                'username': user.username}, status=status.HTTP_200_OK)
         return Response({'error': 'Invalid username atau password '}, status=status.HTTP_401_UNAUTHORIZED) 
 
 class postViewSet(viewsets.ModelViewSet):
