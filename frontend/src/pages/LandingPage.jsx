@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/landingPage.css";
 import image from "../assets/landing.png";
 
 function LandingPage() {
+  
+
   const navigate = useNavigate();
 
   const handleLoginNavigation = () => {

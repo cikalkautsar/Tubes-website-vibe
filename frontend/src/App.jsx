@@ -5,7 +5,7 @@ import Exploring from "./pages/Exploring.jsx";
 import LandingPage from "./pages/Landingpage.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from './pages/SignUp.jsx';
-import UpdateProfile from "./pages/Updateprofile.jsx";
+import UpdateProfile from "./pages/Editprofile.jsx";
 import Profile from "./pages/Profile.jsx";  
 import Home from "./pages/Home.jsx";
 import Comment from "./pages/Comment.jsx";
@@ -14,6 +14,7 @@ import Achievement from "./pages/Achievement.jsx";
 import CreateAch from "./pages/CreateAch.jsx";
 import Search from "./pages/Search.jsx";
 import './App.css';
+import Editprofile from "./pages/Editprofile.jsx";
 
 
 
@@ -33,7 +34,7 @@ function App() {
         <Route path="/exploring" element={<Exploring />} />
         <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/updateprofile" element={<UpdateProfile />} /> 
+        <Route path="/editprofile" element={<Editprofile />} /> 
         <Route path="/profile" element={<Profile />} /> 
         <Route path="/home" element={<Home />} /> 
         <Route path="/comment" element={<Comment />} />
